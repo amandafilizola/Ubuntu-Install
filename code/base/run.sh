@@ -88,10 +88,12 @@ read -p "Enter Git email: " git_email
 
 ansible-playbook --ask-become-pass --extra-vars "user_on_git=${git_username} email_on_git=${git_email}" main.yaml
 
+chmod +x install_environment_aws.sh
+./install_environment_aws.sh
+
 clear
 echo "==========================================="
 echo "OK"
-echo "The dotfiles directory is in your HOME"
 echo "Everything is installed."
 echo "Is recommended restart the machine now"
 echo "==========================================="
