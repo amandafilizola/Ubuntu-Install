@@ -20,6 +20,15 @@
         mode: 0700
 
     # ============================================
+    # Criando o diretório $HOME/projects
+    # ============================================
+    - name: UBUNTU - Create $HOME/projects Directory
+      file:
+        path: "$HOME/projects"
+        state: directory
+        mode: 0700
+
+    # ============================================
     # Removendo os diretório do #HOME que eu não uso
     # ============================================
     - name: UBUNTU - Remove useless folders
@@ -72,8 +81,6 @@
         - chrome-gnome-shell
         - xclip
         - ffmpeg
-        - baobab
-        - dconf-editor
 
     # ============================================
     # Instalando o Visual Studio Code
@@ -86,23 +93,14 @@
     - import_tasks: spotify/spotify_install.yaml
 
     # ===========================================
-    # Instalando o Dropbox
-    # ===========================================
-    - include_tasks: dropbox/dropbox_install.yaml
-      vars:
-        user: "{{ username.stdout }}"
-
-    # ===========================================
-    # Instalando o Docker
-    # ===========================================
-    - include_tasks: docker_install.yaml
-      vars:
-        user: "{{ username.stdout }}"
-
-    # ===========================================
     # Instalando o Google Chrome
     # ===========================================
     - include_tasks: google_chrome_install.yaml
+
+    # ============================================
+    # Instalando o Spotify
+    # ============================================
+    - import_tasks: postman/postman_install.yaml
 
     # ============================================
     # Copy the profile picture to $HOME/Pictures
@@ -168,11 +166,11 @@
       apt:
         autoremove: yes
 
-    # ===========================================
-    # Instalando os meus dotfiles
-    # ===========================================
-    - include_tasks: dotfiles.yaml
-      vars:
-        user: "{{ username.stdout }}"
-        git_name: "{{ user_on_git }}"
-        git_email: "{{ email_on_git }}"
+    # ============================================
+    # Copy the profile picture to $HOME/Pictures
+    # ============================================
+    - name: BASHRC - Copy bashrc user profile
+      copy:
+        src: files/.bashrc
+        dest: /home/{{ username.stdout }}/.bashrc
+
