@@ -50,7 +50,7 @@ fi
 
 # Instalanado o Nodemon
 if ! type nodemon > /dev/null 2>&1; then
-  npm install -g nodemon
+  sudo npm install -g nodemon
 fi
 
 echo "OK"

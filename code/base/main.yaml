@@ -98,17 +98,20 @@
     - include_tasks: google_chrome_install.yaml
 
     # ============================================
-    # Instalando o Spotify
+    # Instalando o Postman
     # ============================================
     - import_tasks: postman/postman_install.yaml
+      vars:
+        postman_folder: "$HOME/bin/Postman"
+
 
     # ============================================
-    # Copy the profile picture to $HOME/Pictures
+    # Copy the profile picture to $HOME/Imagens
     # ============================================
     - name: THEME - Copy user profile picture
       copy:
         src: files/profile.png
-        dest: /home/{{ username.stdout }}/Pictures/profile.png
+        dest: /home/{{ username.stdout }}/Imagens/profile.png
 
     # ============================================
     # set profile picture
@@ -130,7 +133,7 @@
       lineinfile:
         path: /var/lib/AccountsService/users/{{ username.stdout }}
         regexp: '^Icon='
-        line: 'Icon=/home/{{ username.stdout }}/Pictures/profile.png'
+        line: 'Icon=/home/{{ username.stdout }}/Imagens/profile.png'
       when: is_icon.rc == 1
 
     # if line exist, replace with new value
@@ -140,7 +143,7 @@
       lineinfile:
         path: /var/lib/AccountsService/users/{{ username.stdout }}
         regexp: '^Icon='
-        line: 'Icon=/home/{{ username.stdout }}/Pictures/profile.png'
+        line: 'Icon=/home/{{ username.stdout }}/Imagens/profile.png'
       when: is_icon.rc == 0
 
     # ===========================================
@@ -167,7 +170,7 @@
         autoremove: yes
 
     # ============================================
-    # Copy the profile picture to $HOME/Pictures
+    # Copy the bashrc new bashrc to bashrc
     # ============================================
     - name: BASHRC - Copy bashrc user profile
       copy:
