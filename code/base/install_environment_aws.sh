@@ -25,4 +25,12 @@ if ! type slack > /dev/null 2>&1; then
   rm -rf slack-desktop-4.0.2-amd64.deb
 fi
 
+if ! type zoom > /dev/null 2>&1; then
+  echo "instalando o Zoom Desktop"
+  wget https://d11yldzmag5yn.cloudfront.net/prod/3.5.385850.0413/zoom_amd64.deb
+  sudo gdebi -n zoom_amd64.deb
+  rm -rf zoom_amd64.deb
+
+fi
+
 echo "OK"
