@@ -177,11 +177,10 @@
         src: files/.bashrc
         dest: /home/{{ username.stdout }}/.bashrc
 
-
     # =============================================
     # Copy gitconfig to HOME
     # =============================================
-    - name: POSTMAN - generate desktop file
+    - name: GITCONFIG - generate desktop file
       template:
         src: ".gitconfig.j2"
         dest: "$HOME/.gitconfig"

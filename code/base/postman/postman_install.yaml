@@ -33,7 +33,7 @@
 
   - name: POSTMAN - set user
     set_fact:
-      user: "{{ username.stdout_lines }}"
+      user: "{{ username.stdout_lines[0] }}"
 
   - name: POSTMAN - generate desktop file
     template:
