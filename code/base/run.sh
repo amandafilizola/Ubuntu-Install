@@ -55,8 +55,6 @@ system_update(){
   test -f /var/lib/dpkg/lock && sudo rm -rf /var/lib/dpkg/lock
   test -f /var/lib/dpkg/lock-frontend && sudo rm -rf /var/lib/dpkg/lock-frontend
 
-  sudo apt --fix-broken install
-  sudo dpkg --configure -a
   sudo apt -y upgrade
   sudo apt -y dist-upgrade
   sudo apt -y full-upgrade

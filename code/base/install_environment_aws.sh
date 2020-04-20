@@ -19,10 +19,7 @@ fi
 # Instalanado o Slack
 if ! type slack > /dev/null 2>&1; then
   echo "instalando o Slack Desktop"
-  wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
-  sudo apt --fix-broken install
-  sudo dpkg -i slack-desktop-4.0.2-amd64.deb
-  rm -rf slack-desktop-4.0.2-amd64.deb
+  sudo snap install slack --classic
 fi
 
 # Instalanado o Zoom
