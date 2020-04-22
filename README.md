@@ -53,7 +53,7 @@ Install many packages. Basically the packages are:
 | Browser | Google-Chrome |
 | Terminal | Terminator |
 
-- Some others tools like: 
+- Some others tools like:
   - dropbox
   - docker
   - git, git-extras, meld
@@ -76,11 +76,11 @@ Download and install my [Dotfiles repository](https://github.com/frankjuniorr/do
 ## Use
 This is necessary because the script have a interactive mode on ansible moment.
 ```bash
-wget -O installer.sh http://bit.ly/2vtw4Ge
+wget -O installer.sh https://bit.ly/3bxVnqo
 chmod +x installer.sh
 ./installer.sh
 ```
-This shorten link ``http://bit.ly/2vtw4Ge`` is pointed to ``https://raw.githubusercontent.com/frankjuniorr/Ubuntu-Install/master/code/trigger.sh``
+This shorten link ``https://bit.ly/3bxVnqo`` is pointed to ``https://raw.githubusercontent.com/amandafilizola/Ubuntu-Install/master/code/trigger.sh``
 
 ----
 
