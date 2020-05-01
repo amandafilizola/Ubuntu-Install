@@ -50,4 +50,9 @@ if ! type nodemon > /dev/null 2>&1; then
   sudo npm install -g nodemon
 fi
 
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.cm commit
+git config --global alias.st status
+
 echo "OK"
