@@ -84,7 +84,15 @@
     # ============================================
     # Instalando o Visual Studio Code
     # ============================================
-    - import_tasks: vs_code_install.yaml
+    - name: "Instalando o Visual Studio Code"
+      become: yes
+      shell: "snap install --classic code"
+
+    # ============================================
+    # Instalando extensão sync-setiings para o Visual Studio Code
+    # ============================================
+    - name: VS CODE - install sync-settings extensions
+      shell: code --install-extension Shan.code-settings-sync
 
     # ============================================
     # Instalando o Spotify
