@@ -97,7 +97,9 @@
     # ============================================
     # Instalando o Spotify
     # ============================================
-    - import_tasks: spotify/spotify_install.yaml
+    - name: "Instalando o Spotify"
+      become: yes
+      shell: "snap install spotify"
 
     # ===========================================
     # Instalando o Google Chrome
